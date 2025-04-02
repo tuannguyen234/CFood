@@ -1,0 +1,157 @@
+
+
+.container {
+    display: flex;
+    flex-wrap: nowrap; /* Không xuống dòng */
+    gap: 20px; /* Khoảng cách giữa các sản phẩm */
+}
+.image-container-sub {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 2px solid #e04f11;
+    padding: 20px;
+    background-color: #f8f8f8;
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+.image-container-sub img {
+    width: 100px; /* Kích thước 256x256 */
+    height: 100px;
+    object-fit: cover; /* Đảm bảo hình ảnh không bị méo */
+    transition: transform 0.3s ease-in-out;
+}
+.image-container-sub:hover img {
+    transform: scale(1.2); /* Phóng to 1.5 lần khi hover */
+}
+.text-container {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+}
+.price-container {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #e74c3c;
+    font-weight: bold;
+    text-align: center;
+
+}
+
+/* 🔥 Hiệu ứng đổi màu chữ cho tiêu đề */
+@keyframes colorChange {
+    0% { color: #FF0000; } /* Đỏ */
+    50% { color: #FFA500; } /* Cam */
+    100% { color: #FFD700; } /* Vàng */
+}
+
+.color-changing-text {
+    font-size: 50px !important; /* Chữ lớn hơn */
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 0 0 20px #FF4500, 0 0 4px #FF0000, 0 0 6px #8B0000;
+    animation: colorChange 5s infinite alternate; /* Hiệu ứng đổi màu */
+}
+
+
+/* 🔄 Hiệu ứng trượt ảnh */
+@keyframes slideEffect {
+    0% { opacity: 0; transform: translateX(-100%); } /* Bắt đầu ngoài màn hình trái */
+    50% { opacity: 1; transform: translateX(0); } /* Trượt vào và ổn định */
+    75% { opacity: 1; transform: translateX(0); } /* Giữ nguyên */
+    100% { opacity: 0; transform: translateX(100%); } /* Mờ dần và trượt sang phải để biến mất */
+}
+
+/* 🎭 Container cho ảnh trượt */
+.img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    overflow: hidden;
+}
+
+/* 🖼 Ảnh có hiệu ứng trượt */
+.img-container img {
+    animation: slideEffect 2s ease-in-out; /* Áp dụng hiệu ứng */
+    width: 256px;
+    height: 256px;
+    display: block;
+    cursor: pointer;
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+
+/* Chatbot text*/
+@keyframes fireColor {
+        0% { color: #ff0000; } /* Đỏ */
+        25% { color: #ff4500; } /* Cam đậm */
+        50% { color: #ff8c00; } /* Cam nhạt */
+        75% { color: #ffd700; } /* Vàng */
+        100% { color: #ff0000; } /* Quay lại Đỏ */
+    }
+
+    @keyframes fireGlow {
+        0% { text-shadow: 0px 0px 10px #ff4500, 0px 0px 20px #ff6347; }
+        50% { text-shadow: 0px 0px 20px #ff0000, 0px 0px 40px #ff4500, 0px 0px 60px #ff8c00; }
+        100% { text-shadow: 0px 0px 30px #ff4500, 0px 0px 50px #ff6347, 0px 0px 70px #ffd700; }
+    }
+
+    @keyframes fireWave {
+        0% { transform: translateY(0px) scale(1); }
+        50% { transform: translateY(-5px) scale(1.1); }
+        100% { transform: translateY(0px) scale(1); }
+    }
+
+    @keyframes knifeChop {
+        0% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(10px) rotate(-20deg); }
+        100% { transform: translateY(0px) rotate(0deg); }
+    }
+    @keyframes typing {
+        0% { content: "C"; }
+        10% { content: "CF"; }
+        20% { content: "CFo"; }
+        30% { content: "CFoo"; }
+        40% { content: "CFood"; }
+        50% { content: "CFood -"; }
+        60% { content: "CFood - C"; }
+        70% { content: "CFood - Ch"; }
+        80% { content: "CFood - Cha"; }
+        90% { content: "CFood - Chat"; }
+        100% { content: "CFood - ChatBot"; }
+    }
+
+    .fire-text::after {
+        content: "";
+        animation: typing 3s steps(12) infinite alternate; /* Hiệu ứng đánh chữ */
+    }
+
+    .fire-text {
+        font-size: 27px !important;
+        font-weight: bold;
+        text-align: center;
+        animation: fireColor 5s infinite alternate, fireGlow 2s infinite alternate; /* Hiệu ứng đổi màu */
+        text-shadow: 1px 1px 10px #ff4500, 5px 5px 20px #ff6347;
+    }
+
+    .fire-emoji {
+        display: inline-block;
+        font-size: 40px !important;
+        animation: fireWave 1s infinite alternate ease-in-out, fireGlow 2s infinite alternate;
+    }
+    .knife-emoji {
+        display: inline-block;
+        font-size: 50px !important;
+        animation: knifeChop 0.33s infinite alternate ease-in-out;
+    }
